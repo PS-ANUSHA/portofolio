@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <style>
+    /* Basic Styles */
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #e0eafc, #cfdef3);
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      margin-top: 40px;
+      color: #333;
+      font-size: 2.5em;
+    }
+
+    /* Intro Box with 3D hover effect */
+    .intro-box {
+      background: linear-gradient(135deg, #f0f0f0, #d0d0ff);
+      padding: 40px;
+      margin: 30px auto;
+      text-align: center;
+      border-radius: 15px;
+      width: 70%;
+      transition: transform 0.5s;
+      perspective: 1000px;
+    }
+
+    .intro-box:hover {
+      transform: rotateY(10deg) rotateX(5deg);
+    }
+
+    /* Buttons */
+    .github, .linkedin {
+      display: inline-block;
+      padding: 12px 25px;
+      margin: 10px;
+      border-radius: 8px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .github {
+      background-color: #24292f; /* GitHub dark */
+    }
+
+    .github:hover {
+      transform: scale(1.1);
+      background-color: #4078c0;
+    }
+
+    .linkedin {
+      background-color: #0a66c2; /* LinkedIn blue */
+    }
+
+    .linkedin:hover {
+      transform: scale(1.1);
+      background-color: #00509e;
+    }
+
+    /* Interactive button */
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      margin-top: 20px;
+      border: none;
+      border-radius: 8px;
+      background-color: #ff7f50;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.2s, background-color 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      background-color: #ff5722;
+    }
+
+    /* 3D Cube */
+    .cube-container {
+      perspective: 800px;
+      width: 150px;
+      height: 150px;
+      margin: 40px auto;
+    }
+
+    .cube {
+      width: 150px;
+      height: 150px;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: rotateCube 10s infinite linear;
+      transition: transform 0.5s;
+    }
+
+    .cube:hover {
+      animation-play-state: paused; /* pauses rotation on hover */
+      transform: scale(1.1) rotateX(20deg) rotateY(20deg); /* subtle tilt */
+    }
+
+    .face {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background: linear-gradient(45deg, #ff7f50, #ffcc70);
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #fff;
+      border-radius: 8px;
+    }
+
+    .front  { transform: rotateY(0deg) translateZ(75px); }
+    .back   { transform: rotateY(180deg) translateZ(75px); }
+    .right  { transform: rotateY(90deg) translateZ(75px); }
+    .left   { transform: rotateY(-90deg) translateZ(75px); }
+    .top    { transform: rotateX(90deg) translateZ(75px); }
+    .bottom { transform: rotateX(-90deg) translateZ(75px); }
+
+    @keyframes rotateCube {
+      0%   { transform: rotateX(0deg) rotateY(0deg); }
+      100% { transform: rotateX(360deg) rotateY(360deg); }
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Anusha Srinivasan</h1>
+
+  <div class="intro-box">
+    <p>Hello! I am Anusha Srinivasan. Welcome to my portfolio. I am learning coding and building projects to improve my skills.</p>
+  </div>
+
+  <button onclick="changeText()">Click me!</button>
+
+  <!-- 3D Cube -->
+  <div class="cube-container">
+    <div class="cube">
+      <div class="face front">GitHub</div>
+      <div class="face back">LinkedIn</div>
+      <div class="face right">Portfolio</div>
+      <div class="face left">Projects</div>
+      <div class="face top">About Me</div>
+      <div class="face bottom">Contact</div>
+    </div>
+  </div>
+
+  <!-- Links -->
+  <div>
+    <a href="https://github.com/PS-ANUSHA" target="_blank" class="github">GitHub</a>
+    <a href="https://linkedin.com/in/Anusha Srinivasan" target="_blank" class="linkedin">LinkedIn</a>
+  </div>
+
+  <!-- Interactive Script -->
+  <script>
+    function changeText() {
+      document.querySelector(".intro-box p").innerText = "I am learning Frontend, UI/UX, and building my portfolio!";
+    }
+  </script>
+
+</body>
+</html>
